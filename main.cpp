@@ -22,11 +22,14 @@
 
 int main()
 {
-	Tree tree("Oleg", "tall");
+	Tree tree("Alexey", "short", 10);
 	tree.PrintInfo();
 
-	Bush bush("Jeff", "short");
+	Bush bush("Bob", "middle", 7);
 	bush.PrintInfo();
+
+	std::cout << (*tree.Harvest()) << '\n';
+
 
 	return 0;
 }

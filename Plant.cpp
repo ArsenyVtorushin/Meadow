@@ -2,7 +2,20 @@
 
 void Plant::PrintInfo()const
 {
-	std::cout << "Name: " << this->name << "\nSize: " << this->size << "\nHeight: " << this->height << "\n\n";
+	std::cout
+		<< "Name: " << this->name
+		<< "\nSize: " << this->size
+		<< "\nHeight: " << this->height
+		<< "\nThere are " << this->countHarvest << " harvests left\n\n";
+}
+
+auto Plant::Harvest() -> Harvest*
+{
+	if (this->countHarvest > 0)
+	{
+		return &this->crop;
+		this->countHarvest--;
+	}
 }
 
 void Plant::setName(std::string name)
@@ -17,6 +30,10 @@ void Plant::setHeight(std::string height)
 {
 	this->height = height;
 }
+void Plant::setCountHarvest(unsigned countHarvest)
+{
+	this->countHarvest = countHarvest;
+}
 
 auto Plant::getName() const -> std::string
 {
@@ -30,18 +47,25 @@ auto Plant::getHeight() const -> std::string
 {
 	return this->height;
 }
-
-
-Tree::Tree(std::string name, std::string height)
+auto Plant::getCountHarvest() const -> unsigned
 {
-	this->name = name;
-	this->height = height;
-	this->size = "Big";
+	return this->countHarvest;
 }
 
-Bush::Bush(std::string name, std::string height)
+auto Tree::Harvest() -> Harvest*
 {
-	this->name = name;
-	this->height = height;
-	this->size = "Small";
+	if (this->countHarvest > 0)
+	{
+		return &this->crop;
+		this->countHarvest--;
+	}
+}
+
+auto Bush::Harvest() -> Harvest*
+{
+	if (this->countHarvest > 0)
+	{
+		return &this->crop;
+		this->countHarvest--;
+	}
 }
