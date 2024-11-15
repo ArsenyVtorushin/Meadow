@@ -9,13 +9,10 @@ void Plant::PrintInfo()const
 		<< "\nThere are " << this->countHarvest << " harvests left\n\n";
 }
 
-auto Plant::Harvest() -> Harvest*
+Harvest* Plant::GetHarvest() const
 {
-	if (this->countHarvest > 0)
-	{
-		return &this->crop;
-		this->countHarvest--;
-	}
+	Harvest* crop();
+	return crop;
 }
 
 void Plant::setName(std::string name)
@@ -52,20 +49,14 @@ auto Plant::getCountHarvest() const -> unsigned
 	return this->countHarvest;
 }
 
-auto Tree::Harvest() -> Harvest*
+Harvest* Tree::GetHarvest() const
 {
-	if (this->countHarvest > 0)
-	{
-		return &this->crop;
-		this->countHarvest--;
-	}
+	Cone* crop;
+	return crop;
 }
 
-auto Bush::Harvest() -> Harvest*
+Harvest* Bush::GetHarvest() const
 {
-	if (this->countHarvest > 0)
-	{
-		return &this->crop;
-		this->countHarvest--;
-	}
+	Berry* crop;
+	return crop;
 }

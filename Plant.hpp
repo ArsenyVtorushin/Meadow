@@ -15,7 +15,7 @@ public:
 
 	void PrintInfo()const;
 
-	virtual auto Harvest() -> Harvest*;
+	virtual Harvest* GetHarvest()const;
 
 	void setName(std::string name);
 	void setSize(std::string size);
@@ -33,8 +33,6 @@ protected:
 	std::string size;
 
 	unsigned countHarvest;
-
-	Harvest crop;
 };
 
 class Tree : public Plant
@@ -45,7 +43,7 @@ public:
 		this->size = "Big";
 	}
 
-	Harvest* Harvest() override;
+	Harvest* GetHarvest()const override;
 };
 
 class Bush : public Plant
@@ -56,7 +54,7 @@ public:
 		this->size = "Small";
 	}
 
-	Harvest* Harvest() override;
+	Harvest* GetHarvest()const override;
 };
 
 

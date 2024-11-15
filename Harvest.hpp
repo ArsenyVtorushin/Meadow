@@ -7,7 +7,7 @@
 class Harvest
 {
 public:
-	Harvest() = default;
+	Harvest() :name("Harvest"), weight("Default") {}
 
 	Harvest(std::string weight)
 		:weight(weight)
@@ -32,6 +32,11 @@ protected:
 class Berry : public Harvest
 {
 public:
+	Berry()
+	{
+		this->name = "Berry";
+		this->weight = "Light";
+	}
 	Berry(std::string weight) :Harvest(weight)
 	{
 		this->name = "Berry";
@@ -41,6 +46,11 @@ public:
 class Fruit : public Harvest
 {
 public:
+	Fruit()
+	{
+		this->name = "Fruit";
+		this->weight = "Heavy";
+	}
 	Fruit(std::string weight) :Harvest(weight)
 	{
 		this->name = "Fruit";
@@ -50,6 +60,11 @@ public:
 class Cone : public Harvest
 {
 public:
+	Cone()
+	{
+		this->name = "Cone";
+		this->weight = "Not to heavy";
+	}
 	Cone(std::string weight) :Harvest(weight)
 	{
 		this->name = "Cone";

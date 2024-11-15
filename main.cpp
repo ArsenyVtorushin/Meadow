@@ -28,7 +28,7 @@ int main()
 	Bush bush("Bob", "middle", 7);
 	bush.PrintInfo();
 
-	std::cout << (*tree.Harvest()) << '\n';
+
 
 
 	return 0;
