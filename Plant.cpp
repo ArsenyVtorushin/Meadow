@@ -3,60 +3,47 @@
 void Plant::PrintInfo()const
 {
 	std::cout
-		<< "Name: " << this->name
-		<< "\nSize: " << this->size
-		<< "\nHeight: " << this->height
-		<< "\nThere are " << this->countHarvest << " harvests left\n\n";
+		<< "Name: " << this->name_
+		<< "\nSize: " << this->size_
+		<< "\nHeight: " << this->height_
+		<< "\nThere are " << this->countHarvest_ << " harvests left\n\n";
 }
 
-Harvest* Plant::GetHarvest() const
+Harvest* Plant::GetHarvest() 
 {
-	Harvest* crop();
-	return crop;
+	return crop_;
 }
 
 void Plant::setName(std::string name)
 {
-	this->name = name;
+	this->name_ = name;
 }
 void Plant::setSize(std::string size)
 {
-	this->size = size;
+	this->size_ = size;
 }
 void Plant::setHeight(std::string height)
 {
-	this->height = height;
+	this->height_ = height;
 }
 void Plant::setCountHarvest(unsigned countHarvest)
 {
-	this->countHarvest = countHarvest;
+	this->countHarvest_ = countHarvest;
 }
 
 auto Plant::getName() const -> std::string
 {
-	return this->name;
+	return this->name_;
 }
 auto Plant::getSize() const -> std::string
 {
-	return this->size;
+	return this->size_;
 }
 auto Plant::getHeight() const -> std::string
 {
-	return this->height;
+	return this->height_;
 }
 auto Plant::getCountHarvest() const -> unsigned
 {
-	return this->countHarvest;
-}
-
-Harvest* Tree::GetHarvest() const
-{
-	Cone* crop;
-	return crop;
-}
-
-Harvest* Bush::GetHarvest() const
-{
-	Berry* crop;
-	return crop;
+	return this->countHarvest_;
 }

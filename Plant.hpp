@@ -6,16 +6,18 @@ class Plant
 {
 public:	
 	Plant(std::string name, std::string height, unsigned countHarvest)
-		:name(name), height(height), countHarvest(countHarvest)
-	{}
+		:name_(name), height_(height), countHarvest_(countHarvest)
+	{
+		size_ = "default";
+	}
 
 	Plant(std::string name, std::string height, std::string size, unsigned countHarvest)
-		:name(name), height(height), size(size), countHarvest(countHarvest)
+		:name_(name), height_(height), size_(size), countHarvest_(countHarvest)
 	{}
 
 	void PrintInfo()const;
 
-	virtual Harvest* GetHarvest()const;
+	virtual Harvest* GetHarvest();
 
 	void setName(std::string name);
 	void setSize(std::string size);
@@ -28,11 +30,12 @@ public:
 	auto getCountHarvest()const->unsigned;
 
 protected:
-	std::string name;
-	std::string height;
-	std::string size;
+	std::string name_;
+	std::string height_;
+	std::string size_;
+	unsigned countHarvest_;
 
-	unsigned countHarvest;
+	Harvest* crop_;
 };
 
 class Tree : public Plant
@@ -40,10 +43,11 @@ class Tree : public Plant
 public:
 	Tree(std::string name, std::string height, unsigned countHarvest) :Plant(name, height, countHarvest)
 	{
-		this->size = "Big";
+		size_ = "Big";
+		crop_ = new Cone;
 	}
 
-	Harvest* GetHarvest()const override;
+	Harvest* GetHarvest() override;
 };
 
 class Bush : public Plant
@@ -51,10 +55,11 @@ class Bush : public Plant
 public:
 	Bush(std::string name, std::string height, unsigned countHarvest) :Plant(name, height, countHarvest)
 	{
-		this->size = "Small";
+		size_ = "Small";
+		crop_ = new Berry;
 	}
 
-	Harvest* GetHarvest()const override;
+	Harvest* GetHarvest() override;
 };
 
 

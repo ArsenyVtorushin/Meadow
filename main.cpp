@@ -28,8 +28,7 @@ int main()
 	Bush bush("Bob", "middle", 7);
 	bush.PrintInfo();
 
-
-
+	tree.GetHarvest()->PrintInfo();
 
 	return 0;
 }
