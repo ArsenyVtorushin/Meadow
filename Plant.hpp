@@ -9,15 +9,18 @@ public:
 		:name_(name), height_(height), countHarvest_(countHarvest)
 	{
 		size_ = "default";
+		crop_ = new Harvest;
 	}
 
 	Plant(std::string name, std::string height, std::string size, unsigned countHarvest)
 		:name_(name), height_(height), size_(size), countHarvest_(countHarvest)
-	{}
+	{
+		crop_ = new Harvest;
+	}
 
-	void PrintInfo()const;
+	void PrintInfo();
 
-	virtual Harvest* GetHarvest();
+	Harvest* GetHarvest();
 
 	void setName(std::string name);
 	void setSize(std::string size);
@@ -46,8 +49,6 @@ public:
 		size_ = "Big";
 		crop_ = new Cone;
 	}
-
-	Harvest* GetHarvest() override;
 };
 
 class Bush : public Plant
@@ -58,8 +59,6 @@ public:
 		size_ = "Small";
 		crop_ = new Berry;
 	}
-
-	Harvest* GetHarvest() override;
 };
 
 

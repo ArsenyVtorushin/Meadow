@@ -1,49 +1,53 @@
 #include "Plant.hpp"
 
-void Plant::PrintInfo()const
+void Plant::PrintInfo()
 {
 	std::cout
-		<< "Name: " << this->name_
-		<< "\nSize: " << this->size_
-		<< "\nHeight: " << this->height_
-		<< "\nThere are " << this->countHarvest_ << " harvests left\n\n";
+		<< "Name: " << name_
+		<< "\nSize: " << size_
+		<< "\nHeight: " << height_
+		<< "\nThere are " << countHarvest_ << " harvests left\n\n";
 }
 
 Harvest* Plant::GetHarvest() 
 {
-	return crop_;
+	if (countHarvest_ > 0)
+	{
+		countHarvest_--;
+		return crop_;
+	}
 }
 
 void Plant::setName(std::string name)
 {
-	this->name_ = name;
+	name_ = name;
 }
 void Plant::setSize(std::string size)
 {
-	this->size_ = size;
+	size_ = size;
 }
 void Plant::setHeight(std::string height)
 {
-	this->height_ = height;
+	height_ = height;
 }
 void Plant::setCountHarvest(unsigned countHarvest)
 {
-	this->countHarvest_ = countHarvest;
+	countHarvest_ = countHarvest;
 }
 
 auto Plant::getName() const -> std::string
 {
-	return this->name_;
+	return name_;
 }
 auto Plant::getSize() const -> std::string
 {
-	return this->size_;
+	return size_;
 }
 auto Plant::getHeight() const -> std::string
 {
-	return this->height_;
+	return height_;
 }
 auto Plant::getCountHarvest() const -> unsigned
 {
-	return this->countHarvest_;
+	return countHarvest_;
 }

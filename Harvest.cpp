@@ -4,7 +4,7 @@ void Harvest::PrintInfo()
 {
 	std::cout
 		<< "Name: " << name_
-		<< "\nWeight: " << weight_ << "\n";
+		<< "\nWeight: " << weight_ << "\n\n";
 }
 
 void Harvest::setName(std::string name)
