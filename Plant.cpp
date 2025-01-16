@@ -1,53 +1,106 @@
 #include "Plant.hpp"
 
-void Plant::PrintInfo()
+void aPlant::PrintInfo()
 {
 	std::cout
 		<< "Name: " << name_
-		<< "\nSize: " << size_
-		<< "\nHeight: " << height_
+		<< "\nSize: " << STR_SIZE
+		<< "\nHeight: " << STR_HEIGHT
 		<< "\nThere are " << countHarvest_ << " harvests left\n\n";
 }
 
-Harvest* Plant::GetHarvest() 
-{
-	if (countHarvest_ > 0)
-	{
-		countHarvest_--;
-		return crop_;
-	}
-}
 
-void Plant::setName(std::string name)
+
+void aPlant::setName(std::string name)
 {
 	name_ = name;
 }
-void Plant::setSize(std::string size)
+void aPlant::setSize(Size size)
 {
 	size_ = size;
 }
-void Plant::setHeight(std::string height)
+void aPlant::setHeight(Height height)
 {
 	height_ = height;
 }
-void Plant::setCountHarvest(unsigned countHarvest)
+void aPlant::setCountHarvest(unsigned countHarvest)
 {
 	countHarvest_ = countHarvest;
 }
 
-auto Plant::getName() const -> std::string
+auto aPlant::getName() const -> std::string
 {
 	return name_;
 }
-auto Plant::getSize() const -> std::string
+auto aPlant::getSize() const -> Size
 {
 	return size_;
 }
-auto Plant::getHeight() const -> std::string
+auto aPlant::getHeight() const -> Height
 {
 	return height_;
 }
-auto Plant::getCountHarvest() const -> unsigned
+auto aPlant::getCountHarvest() const -> unsigned
 {
 	return countHarvest_;
+}
+
+
+Harvest* AppleTree::GetHarvest()
+{
+	if (countHarvest_ > 0)
+	{
+		countHarvest_--;
+		return fruit_;
+	}
+}
+
+
+Harvest* PearTree::GetHarvest()
+{
+	if (countHarvest_ > 0)
+	{
+		countHarvest_--;
+		return fruit_;
+	}
+}
+
+
+Harvest* CherryTree::GetHarvest()
+{
+	if (countHarvest_ > 0)
+	{
+		countHarvest_--;
+		return berry_;
+	}
+}
+
+
+Harvest* RaspberryBush::GetHarvest()
+{
+	if (countHarvest_ > 0)
+	{
+		countHarvest_--;
+		return berry_;
+	}
+}
+
+
+Harvest* BlueberryBush::GetHarvest()
+{
+	if (countHarvest_ > 0)
+	{
+		countHarvest_--;
+		return berry_;
+	}
+}
+
+
+Harvest* CurrantBush::GetHarvest()
+{
+	if (countHarvest_ > 0)
+	{
+		countHarvest_--;
+		return berry_;
+	}
 }

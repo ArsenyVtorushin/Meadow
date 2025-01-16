@@ -1,67 +1,169 @@
 #ifndef PLANT_HPP
 #define PLANT_HPP	
 #include "Harvest.hpp"
+#define STR_SIZE (size_ == Size::Default ? "Default" : (size_ == Size::Big ? "Big" : (size_ == Size::Medium ? "Medium" : "Small")))
+#define STR_HEIGHT (height_ == Height::Default ? "Default" : (height_ == Height::Tall ? "Tall" : (height_ == Height::Medium ? "Medium" : "Short")))
 
-class Plant
+enum class Size
+{
+	Default, Big, Medium, Small
+};
+
+enum class Height
+{
+	Default, Tall, Medium, Short
+};
+
+
+
+class aPlant 
 {
 public:	
-	Plant(std::string name, std::string height, unsigned countHarvest)
+	aPlant(std::string name, Height height, unsigned countHarvest)
 		:name_(name), height_(height), countHarvest_(countHarvest)
 	{
-		size_ = "default";
-		crop_ = new Harvest;
+		size_ = Size::Default;
+
+		berry_ = new Berry;
+		fruit_ = new Fruit;
+		cone_ = new Cone;
 	}
 
-	Plant(std::string name, std::string height, std::string size, unsigned countHarvest)
-		:name_(name), height_(height), size_(size), countHarvest_(countHarvest)
+	aPlant(std::string name, Size size, Height height, unsigned countHarvest)
+		:name_(name), size_(size), height_(height), countHarvest_(countHarvest)
 	{
-		crop_ = new Harvest;
+		berry_ = new Berry;
+		fruit_ = new Fruit;
+		cone_ = new Cone;
 	}
 
 	void PrintInfo();
 
-	Harvest* GetHarvest();
+	virtual Harvest* GetHarvest() = 0;
 
 	void setName(std::string name);
-	void setSize(std::string size);
-	void setHeight(std::string height);
+	void setSize(Size size);
+	void setHeight(Height height);
 	void setCountHarvest(unsigned countHarvest);
 
 	auto getName()const->std::string;
-	auto getSize()const->std::string;
-	auto getHeight()const->std::string;
+	auto getSize()const->Size;
+	auto getHeight()const->Height;
 	auto getCountHarvest()const->unsigned;
 
 protected:
 	std::string name_;
-	std::string height_;
-	std::string size_;
+	Size size_;
+	Height height_;
 	unsigned countHarvest_;
 
-	Harvest* crop_;
+	Berry* berry_;
+	Fruit* fruit_;
+	Cone* cone_;
 };
 
-class Tree : public Plant
+
+
+
+class aTree :public aPlant
 {
 public:
-	Tree(std::string name, std::string height, unsigned countHarvest) :Plant(name, height, countHarvest)
+	aTree(std::string name, Height height, unsigned countHarvest) :aPlant(name, height, countHarvest)
 	{
-		size_ = "Big";
-		crop_ = new Cone;
+		size_ = Size::Big;
 	}
 };
 
-class Bush : public Plant
+
+
+class AppleTree :public aTree
 {
 public:
-	Bush(std::string name, std::string height, unsigned countHarvest) :Plant(name, height, countHarvest)
+	AppleTree(std::string name, Height height, unsigned countHarvest) :aTree(name, height, countHarvest)
 	{
-		size_ = "Small";
-		crop_ = new Berry;
+		fruit_->setName("Apple");
+	}
+
+	Harvest* GetHarvest() override;
+};
+
+
+
+class PearTree :public aTree
+{
+public:
+	PearTree(std::string name, Height height, unsigned countHarvest) :aTree(name, height, countHarvest)
+	{
+		fruit_->setName("Pear");
+	}
+
+	Harvest* GetHarvest() override;
+};
+
+
+
+class CherryTree :public aTree
+{
+public:
+	CherryTree(std::string name, Height height, unsigned countHarvest) :aTree(name, height, countHarvest)
+	{
+		berry_->setName("Cherry");
+	}
+
+	Harvest* GetHarvest() override;
+};
+
+
+
+
+class aBush :public aPlant
+{
+public:
+	aBush(std::string name, Height height, unsigned countHarvest) :aPlant(name, height, countHarvest)
+	{
+		size_ = Size::Small;
 	}
 };
+
+
+
+class RaspberryBush :public aBush
+{
+public:
+	RaspberryBush(std::string name, Height height, unsigned countHarvest) :aBush(name, height, countHarvest) 
+	{
+		berry_->setName("Raspberry");
+	}
+
+	Harvest* GetHarvest() override;
+};
+
+
+
+class BlueberryBush :public aBush
+{
+public:
+	BlueberryBush(std::string name, Height height, unsigned countHarvest) :aBush(name, height, countHarvest) 
+	{
+		berry_->setName("Blueberry");
+	}
+
+	Harvest* GetHarvest() override;
+};
+
+
+
+class CurrantBush :public aBush
+{
+public:
+	CurrantBush(std::string name, Height height, unsigned countHarvest) :aBush(name, height, countHarvest)
+	{
+		berry_->setName("Currant");
+	}
+
+	Harvest* GetHarvest() override;
+};
+
 
 
 #endif // !PLANT_HPP
-
-
