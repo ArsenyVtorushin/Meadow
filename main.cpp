@@ -1,10 +1,41 @@
 #include "Plant.hpp"
 
+
+// ѕространства имен (namespace) - компонент €зыка, который содержит 
+// набор компонентов (функций, классов и т.д.) и имеет 
+// некоторое им€, которое прикрепл€етс€ к каждому 
+// компоненту из этого пространства имЄн.
+// 
+// ѕространства имЄн нужны, чтобы не путать 
+// данные одного пространства с другими, например, если в 
+// исходном коде определены две функции с одним названием, 
+// но в разных пространствах. омпил€тор различит их по пространствам, 
+// которым они принадлежат.
+// 
+// namespace MyNamespace
+// {
+//     //...
+// }
+// 
+// ѕеречислени€ (enum) - компонент €зыка, который позвол€ет создать
+// набор именованных констант, которые нумеруютс€ автоматически или вручную
+// 
+// enum class MyEnum
+// {
+//		//... через зап€тую перечисл€ем константы
+// }
+// 
+//
+
+
+
+
+
 int main()
 {
-	AppleTree appleTree("Bob", Height::Tall, 40);
-	CherryTree cherryTree("Martin", Height::Medium, 50);
-	CurrantBush currantBush("James", Height::Short, 20);
+	mdw::AppleTree appleTree("Bob", mdw::Height::Tall, 40);
+	mdw::CherryTree cherryTree("Martin", mdw::Height::Medium, 50);
+	mdw::CurrantBush currantBush("James", mdw::Height::Short, 20);
 
 	char choose;
 	do

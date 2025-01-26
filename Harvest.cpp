@@ -1,6 +1,6 @@
 #include "Harvest.hpp"
 
-void Harvest::PrintInfo()
+void mdw::Harvest::PrintInfo()
 {
 	std::cout
 		<< "Name: " << name_
@@ -9,20 +9,22 @@ void Harvest::PrintInfo()
 
 
 
-void Harvest::setName(std::string name)
+void mdw::Harvest::setName(std::string name)
 {
 	name_ = name;
 }
-void Harvest::setWeight(Weight weight)
+void mdw::Harvest::setWeight(Weight weight)
 {
 	weight_ = weight;
 }
 
-auto Harvest::getName() const -> std::string
+
+
+auto mdw::Harvest::getName() const -> std::string
 {
 	return name_;
 }
-auto Harvest::getWeight() const -> Weight
+auto mdw::Harvest::getWeight() const -> Weight
 {
 	return weight_;
 }

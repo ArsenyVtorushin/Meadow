@@ -1,6 +1,6 @@
 #include "Plant.hpp"
 
-void aPlant::PrintInfo()
+void mdw::aPlant::PrintInfo()
 {
 	std::cout
 		<< "Name: " << name_
@@ -11,42 +11,46 @@ void aPlant::PrintInfo()
 
 
 
-void aPlant::setName(std::string name)
+void mdw::aPlant::setName(std::string name)
 {
 	name_ = name;
 }
-void aPlant::setSize(Size size)
+void mdw::aPlant::setSize(Size size)
 {
 	size_ = size;
 }
-void aPlant::setHeight(Height height)
+void mdw::aPlant::setHeight(Height height)
 {
 	height_ = height;
 }
-void aPlant::setCountHarvest(unsigned countHarvest)
+void mdw::aPlant::setCountHarvest(unsigned countHarvest)
 {
 	countHarvest_ = countHarvest;
 }
 
-auto aPlant::getName() const -> std::string
+
+
+
+auto mdw::aPlant::getName() const -> std::string
 {
 	return name_;
 }
-auto aPlant::getSize() const -> Size
+auto mdw::aPlant::getSize() const -> Size
 {
 	return size_;
 }
-auto aPlant::getHeight() const -> Height
+auto mdw::aPlant::getHeight() const -> Height
 {
 	return height_;
 }
-auto aPlant::getCountHarvest() const -> unsigned
+auto mdw::aPlant::getCountHarvest() const -> unsigned
 {
 	return countHarvest_;
 }
 
 
-Harvest* AppleTree::GetHarvest()
+
+mdw::Harvest* mdw::AppleTree::GetHarvest()
 {
 	if (countHarvest_ > 0)
 	{
@@ -56,7 +60,8 @@ Harvest* AppleTree::GetHarvest()
 }
 
 
-Harvest* PearTree::GetHarvest()
+
+mdw::Harvest* mdw::PearTree::GetHarvest()
 {
 	if (countHarvest_ > 0)
 	{
@@ -66,7 +71,8 @@ Harvest* PearTree::GetHarvest()
 }
 
 
-Harvest* CherryTree::GetHarvest()
+
+mdw::Harvest* mdw::CherryTree::GetHarvest()
 {
 	if (countHarvest_ > 0)
 	{
@@ -76,7 +82,8 @@ Harvest* CherryTree::GetHarvest()
 }
 
 
-Harvest* RaspberryBush::GetHarvest()
+
+mdw::Harvest* mdw::RaspberryBush::GetHarvest()
 {
 	if (countHarvest_ > 0)
 	{
@@ -86,7 +93,8 @@ Harvest* RaspberryBush::GetHarvest()
 }
 
 
-Harvest* BlueberryBush::GetHarvest()
+
+mdw::Harvest* mdw::BlueberryBush::GetHarvest()
 {
 	if (countHarvest_ > 0)
 	{
@@ -96,7 +104,8 @@ Harvest* BlueberryBush::GetHarvest()
 }
 
 
-Harvest* CurrantBush::GetHarvest()
+
+mdw::Harvest* mdw::CurrantBush::GetHarvest()
 {
 	if (countHarvest_ > 0)
 	{
